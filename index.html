@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florex Group | Strategic Investment &amp; Business Development</title>
+<meta name="description" content="Florex Group is a Dutch family-owned investment and business development group with a legacy since 1850. We partner with companies seeking strategic investment, growth and acquisition across international markets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f6f8f5;
+    --ink:#14231a;
+    --ink-soft:#4b5a51;
+    --line:#e4eae2;
+    --green:#2f7d4f;
+    --green-dark:#1f5c39;
+    --green-soft:#eaf3ec;
+    --gold:#b08d4f;
+    --maxw:1180px;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Inter';font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s ease;
+    background:rgba(255,255,255,0);border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  /* light nav over the dark-green hero, before scroll */
+  header:not(.scrolled) .brand{color:#fff}
+  header:not(.scrolled) .brand small{color:rgba(255,255,255,.78)}
+  header:not(.scrolled) .brand .logo circle{stroke:#9fe0b6}
+  header:not(.scrolled) .brand .logo path{fill:#bfe3cc;stroke:#bfe3cc}
+  header:not(.scrolled) .burger span{background:#fff}
+  @media(min-width:901px){
+    header:not(.scrolled) .menu a{color:rgba(255,255,255,.85)}
+    header:not(.scrolled) .menu a:hover{color:#fff}
+    header:not(.scrolled) .menu a.cta{background:#fff;color:var(--green-dark)}
+    header:not(.scrolled) .menu a.cta:hover{background:#eef7f0}
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center;gap:13px;font-family:'Fraunces';font-size:1.32rem;font-weight:600;letter-spacing:-.02em}
+  .logo{width:38px;height:38px;flex:none}
+  .brand small{display:block;font-family:'Inter';font-size:.6rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+  .menu{display:flex;gap:38px;align-items:center}
+  .menu a{font-size:.83rem;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);transition:.2s;position:relative}
+  .menu a:hover{color:var(--ink)}
+  .menu a.cta{background:var(--green);color:#fff;padding:11px 22px;border-radius:100px;transition:.25s}
+  .menu a.cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+  .burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;padding:170px 0 96px;overflow:hidden;color:#f2f8f3}
+  .hero-bg{position:absolute;inset:0;z-index:-1;background:#1c5236}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .wordmark{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces';font-weight:600;font-size:1rem;letter-spacing:.02em;color:#bfe3cc;margin-bottom:22px}
+  .wordmark::after{content:"";flex:1;height:1px;width:54px;background:linear-gradient(90deg,#8fd0a6,transparent)}
+  .hero h1{font-size:clamp(2.5rem,5.2vw,4.4rem);max-width:15ch;color:#ffffff}
+  .hero h1 em{font-style:italic;color:#9fe0b6}
+  .hero p.lead{font-size:1.14rem;color:#cfe4d6;max-width:50ch;margin-top:26px}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
+  .hero .btn-primary{background:#ffffff;color:var(--green-dark)}
+  .hero .btn-primary:hover{background:#eef7f0;box-shadow:0 14px 30px -12px rgba(0,0,0,.4)}
+  .hero .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+  .hero .btn-ghost:hover{border-color:#fff;color:#fff}
+
+  /* hero imagery */
+  .hero-media{position:relative}
+  .hero-photo{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;
+    box-shadow:0 40px 80px -40px rgba(20,60,35,.5);border:1px solid var(--line)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform 8s ease}
+  .hero-photo:hover img{transform:scale(1.1)}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,92,57,0) 55%,rgba(20,35,26,.42) 100%)}
+  .photo-cap{position:absolute;left:20px;bottom:18px;z-index:2;color:#fff;font-size:.78rem;letter-spacing:.03em;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .hero-badge{position:absolute;top:-22px;left:-22px;z-index:3;background:#fff;border:1px solid var(--line);
+    border-radius:18px;padding:16px 20px;box-shadow:0 20px 40px -22px rgba(20,35,26,.4)}
+  .hero-badge b{font-family:'Fraunces';font-size:1.7rem;color:var(--green);display:block;line-height:1}
+  .hero-badge span{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero-chip{position:absolute;bottom:-20px;right:-14px;z-index:3;background:var(--ink);color:#eef2ee;
+    border-radius:14px;padding:13px 18px;box-shadow:0 20px 40px -22px rgba(20,35,26,.5);display:flex;align-items:center;gap:10px;font-size:.82rem;font-weight:500}
+  .hero-chip svg{color:#8fd0a6;flex:none}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:.9rem;transition:.25s;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--green);color:#fff}
+  .btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(47,125,79,.55)}
+  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+
+  /* ---------- Stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:88px;padding-top:52px;border-top:1px solid rgba(255,255,255,.18)}
+  .stat .num{font-family:'Fraunces';font-size:clamp(2.1rem,4vw,3rem);color:#ffffff;line-height:1}
+  .stat .num span{color:#9fe0b6}
+  .stat .lbl{font-size:.82rem;color:#bcd4c3;margin-top:10px;letter-spacing:.02em}
+
+  /* ---------- Section base ---------- */
+  section{padding:104px 0}
+  .sec-head{max-width:640px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(2rem,4vw,3.1rem)}
+  .sec-head p{color:var(--ink-soft);font-size:1.06rem;margin-top:18px}
+
+  /* ---------- About ---------- */
+  #about{background:var(--bg-alt)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .about-grid p{color:var(--ink-soft);font-size:1.04rem;margin-bottom:20px}
+  .about-visual{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
+    background:linear-gradient(150deg,var(--green) 0%, var(--green-dark) 100%);
+    box-shadow:0 40px 80px -46px rgba(20,60,35,.5)}
+  .about-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .about-visual .glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.9;z-index:1}
+  .about-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,35,26,.05) 40%,rgba(20,35,26,.6) 100%)}
+  .about-visual .est{position:absolute;left:28px;bottom:26px;color:#fff;z-index:2}
+  .about-visual .est b{font-family:'Fraunces';font-size:2.4rem;display:block;line-height:1}
+  .about-visual .est span{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+  .pillars{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .pill{font-size:.8rem;font-weight:500;padding:8px 16px;border-radius:100px;background:#fff;border:1px solid var(--line);color:var(--ink-soft)}
+
+  /* ---------- Approach cards ---------- */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 32px;transition:.3s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 24px 48px -28px rgba(20,35,26,.28);border-color:var(--green-soft)}
+  .card .ico{width:48px;height:48px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--green)}
+  .card h3{font-size:1.32rem;margin-bottom:12px}
+  .card p{color:var(--ink-soft);font-size:.95rem}
+
+  /* ---------- Expertise (branches) ---------- */
+  #expertise{background:var(--ink);color:#eef2ee}
+  #expertise .sec-head h2{color:#fff}
+  #expertise .sec-head p{color:#aebbb1}
+  #expertise .eyebrow{color:#8fd0a6}
+  .exp-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+  .exp-col h4{font-family:'Inter';font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#8fd0a6;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .exp-col ul{list-style:none}
+  .exp-col li{padding:9px 0;font-size:.96rem;color:#cdd6cf;border-bottom:1px solid rgba(255,255,255,.06);transition:.2s;display:flex;align-items:center;gap:10px}
+  .exp-col li:hover{color:#fff;padding-left:6px}
+  .exp-col li::before{content:"";width:5px;height:5px;border-radius:50%;background:#8fd0a6;flex:none}
+
+  /* ---------- CTA band ---------- */
+  #connect{background:linear-gradient(140deg,var(--green) 0%,var(--green-dark) 100%);color:#fff;text-align:center}
+  #connect h2{font-size:clamp(2.1rem,4.5vw,3.4rem);max-width:20ch;margin:0 auto}
+  #connect p{color:#dcece1;max-width:54ch;margin:22px auto 40px;font-size:1.08rem}
+  #connect .btn-primary{background:#fff;color:var(--green-dark)}
+  #connect .btn-primary:hover{background:#f2f2f2;box-shadow:0 14px 30px -12px rgba(0,0,0,.4)}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#9fada4;padding:70px 0 40px}
+  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand{font-family:'Fraunces';font-size:1.5rem;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+  .foot-top p{font-size:.92rem;max-width:38ch}
+  .foot-col h5{color:#fff;font-family:'Inter';font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+  .foot-col a{display:block;font-size:.92rem;padding:6px 0;color:#9fada4;transition:.2s}
+  .foot-col a:hover{color:#8fd0a6}
+  .foot-bottom{padding-top:28px;font-size:.8rem;color:#7b877f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .menu{position:fixed;inset:78px 0 auto 0;background:#fff;flex-direction:column;gap:0;padding:14px 28px 26px;border-bottom:1px solid var(--line);transform:translateY(-140%);transition:.4s;box-shadow:0 20px 40px -20px rgba(0,0,0,.2)}
+    .menu.open{transform:none}
+    .menu a{padding:14px 0;width:100%;border-bottom:1px solid var(--line)}
+    .menu a.cta{text-align:center;margin-top:12px;border-bottom:0}
+    .burger{display:flex}
+    .about-grid,.cards3,.exp-cols,.foot-top{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr;gap:32px}
+    section{padding:74px 0}
+    .hero{padding:130px 0 70px}
+    .hero-grid{grid-template-columns:1fr;gap:56px}
+    .hero-media{margin-top:8px;max-width:440px}
+    .hero-badge{left:-8px}
+    .hero-chip{right:6px}
+  }
+
+  /* nicer tablet layout — 2 columns instead of jumping straight to 1 */
+  @media(max-width:900px) and (min-width:600px){
+    .cards3{grid-template-columns:1fr 1fr}
+    .exp-cols{grid-template-columns:1fr 1fr}
+  }
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" stroke="#2f7d4f" stroke-width="1.6"/>
+        <path d="M20 31c0-7 3-11 9-13-1 7-4 11-9 13Z" fill="#2f7d4f"/>
+        <path d="M20 31c0-7-3-11-9-13 1 7 4 11 9 13Z" fill="#1f5c39"/>
+        <path d="M20 31V15" stroke="#1f5c39" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>Florex Group<small>Since 1850</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#about">About</a>
+      <a href="#approach">Partner</a>
+      <a href="#expertise">Expertise</a>
+      <a href="projects.html">Projects</a>
+      <a class="cta" href="mailto:directie@florexgroup.com?subject=Partnerships%20and%20connections">Connect</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="wordmark reveal">
+          <svg class="logo" style="width:26px;height:26px" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" stroke="#8fd0a6" stroke-width="1.6"/>
+            <path d="M20 31c0-7 3-11 9-13-1 7-4 11-9 13Z" fill="#9fe0b6"/>
+            <path d="M20 31c0-7-3-11-9-13 1 7 4 11 9 13Z" fill="#6fbf8d"/>
+          </svg>
+          Florex Group · Rooted in the Netherlands since 1850
+        </div>
+        <h1 class="reveal">Growing great companies, <em>the family way.</em></h1>
+        <p class="lead reveal">For over 170 years the Florex name has stood for patient, family-minded stewardship. Today we invest in ambitious companies — nurturing the businesses their owners built over decades and helping them grow into new markets worldwide.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="mailto:directie@florexgroup.com?subject=Partnerships%20and%20connections">Start a conversation →</a>
+          <a class="btn btn-ghost" href="projects.html">See our track record</a>
+        </div>
+      </div>
+
+      <div class="hero-media reveal">
+        <div class="hero-badge"><b>1850</b><span>Est.</span></div>
+        <div class="hero-photo">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tulpevelden%20in%20Nederland%20in%202014,%20foto18.JPG?width=1000"
+               alt="Dutch tulip fields in bloom in the Netherlands"
+               loading="eager" referrerpolicy="no-referrer">
+          <span class="photo-cap">Dutch tulip fields in bloom — the roots of our floriculture heritage</span>
+        </div>
+        <div class="hero-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 8-7 8-12a8 8 0 1 0-16 0c0 5 3 9 8 12Z"/><path d="M12 22V10M12 12c2 0 4-1 4-4M12 14c-2 0-4-1-4-4"/></svg>
+          Family stewardship &amp; global reach
+        </div>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="num" data-target="175">175</div><div class="lbl">Years of trading heritage</div></div>
+      <div class="stat"><div class="num" data-target="150" data-suffix="+">150+</div><div class="lbl">Offices in our global network</div></div>
+      <div class="stat"><div class="num" data-target="6">6</div><div class="lbl">Core industries of expertise</div></div>
+      <div class="stat"><div class="num" data-target="20" data-suffix="+">20+</div><div class="lbl">Companies grown &amp; transitioned</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow">Who we are</div>
+      <h2>Uniting tradition with vision.</h2>
+      <p>Florex Group is a Dutch family-owned business with a legacy dating back to 1850. Based in the Netherlands — the gateway to Europe — we specialise in international trade, strategic investment and business development, actively seeking long-term partnerships that add value to our global portfolio.</p>
+      <p>Operating across many industries and markets, our team of experienced experts in logistics, real estate development, international trade and agriculture is highly skilled at selecting the right companies and strengthening their growth strategy.</p>
+      <div class="pillars">
+        <span class="pill">International Trade</span>
+        <span class="pill">Strategic Investment</span>
+        <span class="pill">Logistics</span>
+        <span class="pill">Real Estate</span>
+        <span class="pill">Agriculture</span>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="glyph">
+        <svg width="220" height="220" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 34c0-9 4-14 12-16-1 9-5 14-12 16Z" fill="rgba(255,255,255,.9)"/>
+          <path d="M20 34c0-9-4-14-12-16 1 9 5 14 12 16Z" fill="rgba(255,255,255,.55)"/>
+          <path d="M20 34V12" stroke="rgba(255,255,255,.85)" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="est"><b>1850</b><span>Rooted in heritage</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Your strategic growth partner</div>
+      <h2>Building partnerships — your way to sustainable success.</h2>
+      <p>We deeply value the legacy business owners build over decades. As a long-term partner we align with your goals and activate our global network to drive expansion, so you can scale your impact while protecting what you have built.</p>
+    </div>
+    <div class="cards3">
+      <div class="card reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <h3>Invest in vision</h3>
+        <p>We back companies seeking strategic capital, providing patient investment and the network to move faster into new markets.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <h3>Empower legacy</h3>
+        <p>We preserve the vision owners spent decades building, honouring people, products and reputation through every transition.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+        <h3>Expand markets</h3>
+        <p>With proven expertise in retail, commodities, logistics, science and agriculture, we unlock opportunities across international markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">What we do</div>
+      <h2>Expertise across branches, products &amp; projects.</h2>
+      <p>A diversified portfolio spanning industries, product lines and large-scale international projects.</p>
+    </div>
+    <div class="exp-cols">
+      <div class="exp-col reveal">
+        <h4>Branches</h4>
+        <ul>
+          <li>ICT</li><li>Horticulture</li><li>Logistics</li><li>Nano Technology</li>
+          <li>Commodities</li><li>Life Science</li><li>Wood Industry</li>
+        </ul>
+      </div>
+      <div class="exp-col reveal">
+        <h4>Products</h4>
+        <ul>
+          <li>Barge &amp; Deep Sea Transports</li><li>Packaging</li><li>Oil Industry</li>
+          <li>Flowers &amp; Plants</li><li>Block Chain Software</li><li>Forwarding</li>
+          <li>Nano Microscopes</li><li>Paper &amp; Plastic Recycling</li><li>Plant Extracts</li>
+          <li>RFC Wooden Products</li><li>Horticultural Retail Concepts</li><li>Trade Finance &amp; Commodities</li>
+        </ul>
+      </div>
+      <div class="exp-col reveal">
+        <h4>Projects</h4>
+        <ul>
+          <li>Warehousing &amp; E-Commerce Fulfilment</li><li>Government Aid Projects</li>
+          <li>Horticultural Turnkey Projects</li><li>Warehouse Construction</li>
+          <li>Global Agency Network</li><li>Forestation Investments</li>
+          <li>New International Infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="wrap reveal">
+    <h2>Let's create a sustainable path to success — together.</h2>
+    <p>With a history spanning over 170 years, Florex Group combines extensive experience with a global outlook. Where innovation meets heritage, we'd love to explore a partnership with you.</p>
+    <a class="btn btn-primary" href="mailto:directie@florexgroup.com?subject=Partnerships%20and%20common%20interest">Get in contact →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" stroke="#8fd0a6" stroke-width="1.6"/>
+            <path d="M20 31c0-7 3-11 9-13-1 7-4 11-9 13Z" fill="#8fd0a6"/>
+            <path d="M20 31c0-7-3-11-9-13 1 7 4 11 9 13Z" fill="#5ea479"/>
+            <path d="M20 31V15" stroke="#5ea479" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Florex Group
+        </div>
+        <p>Florex Holding bv — embracing tradition, driving innovation. Connect with us for enduring partnerships in global business growth.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigate</h5>
+        <a href="#about">About</a>
+        <a href="#approach">Partner</a>
+        <a href="#expertise">Expertise</a>
+        <a href="projects.html">Projects</a>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <a href="mailto:directie@florexgroup.com">directie@florexgroup.com</a>
+        <a href="#">The Netherlands</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 1850–2026 Florex Group. All rights reserved.</span>
+      <span>Embracing Tradition · Driving Innovation</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>20));
+
+  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // count-up stats
+  const co=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(!e.isIntersecting)return; co.unobserve(e.target);
+    const el=e.target,t=+el.dataset.target,sfx=el.dataset.suffix||'';let s=null;
+    const step=(n)=>{if(!s)s=n;const p=Math.min((n-s)/1200,1);el.textContent=Math.floor(p*t)+ (p===1?sfx:'');if(p<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step);
+  }),{threshold:.6});
+  document.querySelectorAll('.num[data-target]').forEach(el=>co.observe(el));
+</script>
+</body>
+</html>
