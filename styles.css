@@ -203,6 +203,15 @@ section{padding:100px 0}
 .contact-item a,.contact-item p{font-size:1rem;color:var(--ink)}
 .contact-item a:hover{color:var(--blue)}
 
+/* ---------- Full-width image showcase ---------- */
+.showcase{position:relative;min-height:clamp(360px,52vw,600px);display:flex;align-items:flex-end;overflow:hidden;background:var(--blue-dark)}
+.showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.showcase::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,20,45,.15) 0%,rgba(0,20,45,.35) 55%,rgba(0,18,40,.9) 100%)}
+.showcase .showcase-in{position:relative;z-index:2;color:#fff;padding:0 0 clamp(36px,6vw,72px)}
+.showcase .eyebrow{color:var(--accent-light)}
+.showcase h2{font-size:clamp(1.9rem,3.6vw,3rem);max-width:20ch;color:#fff}
+.showcase p{color:#cfdcec;max-width:52ch;margin-top:16px;font-size:1.04rem}
+
 /* ---------- CTA band ---------- */
 .cta-band{background:linear-gradient(140deg,var(--blue) 0%,var(--blue-dark) 100%);color:#fff;text-align:center}
 .cta-band h2{font-size:clamp(2.1rem,4.5vw,3.3rem);max-width:22ch;margin:0 auto}
