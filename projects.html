@@ -8,123 +8,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#ffffff;--bg-alt:#f6f8f5;--ink:#14231a;--ink-soft:#4b5a51;--line:#e4eae2;
-    --green:#2f7d4f;--green-dark:#1f5c39;--green-soft:#eaf3ec;--gold:#b08d4f;
-    --maxw:1180px;--radius:18px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.14;letter-spacing:-.01em}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-  .eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
-
-  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-  .brand{display:flex;align-items:center;gap:13px;font-family:'Fraunces';font-size:1.32rem;font-weight:600;letter-spacing:-.02em}
-  .logo{width:38px;height:38px;flex:none}
-  .brand small{display:block;font-family:'Inter';font-size:.6rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
-  .menu{display:flex;gap:38px;align-items:center}
-  .menu a{font-size:.83rem;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);transition:.2s}
-  .menu a:hover,.menu a.active{color:var(--ink)}
-  .menu a.cta{background:var(--green);color:#fff;padding:11px 22px;border-radius:100px}
-  .menu a.cta:hover{background:var(--green-dark)}
-  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
-  .burger span{width:24px;height:2px;background:var(--ink)}
-
-  .phead{padding:170px 0 70px;background:
-      radial-gradient(900px 500px at 82% -12%, var(--green-soft) 0%, rgba(234,243,236,0) 60%),
-      linear-gradient(180deg,#fbfdfb,#fff)}
-  .phead h1{font-size:clamp(2.6rem,6vw,4.6rem);max-width:16ch}
-  .phead h1 em{font-style:italic;color:var(--green)}
-  .phead p{font-size:1.14rem;color:var(--ink-soft);max-width:60ch;margin-top:26px}
-
-  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:44px}
-  .filters button{font-family:'Inter';font-size:.82rem;font-weight:500;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;transition:.22s}
-  .filters button:hover{border-color:var(--green);color:var(--green)}
-  .filters button.active{background:var(--green);border-color:var(--green);color:#fff}
-
-  .projects{padding:70px 0 110px}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .proj{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px 34px;display:flex;flex-direction:column;transition:.32s;position:relative;overflow:hidden}
-  .proj::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:.4s}
-  .proj:hover{transform:translateY(-6px);box-shadow:0 26px 52px -30px rgba(20,35,26,.32);border-color:var(--green-soft)}
-  .proj:hover::before{width:100%}
-  .proj .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-  .tag{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:6px 12px;border-radius:100px}
-  .yr{font-size:.8rem;color:var(--ink-soft);font-weight:500}
-  .proj h3{font-size:1.42rem;margin-bottom:14px}
-  .proj p{color:var(--ink-soft);font-size:.94rem;flex:1}
-  .metrics{display:flex;gap:22px;margin:20px 0 4px;padding-top:18px;border-top:1px solid var(--line)}
-  .metrics .m b{font-family:'Fraunces';font-size:1.35rem;color:var(--ink);display:block;line-height:1}
-  .metrics .m span{font-size:.72rem;color:var(--ink-soft);letter-spacing:.02em}
-  .outcome{margin-top:18px;font-size:.8rem;font-weight:600;color:var(--green-dark);display:flex;align-items:center;gap:8px}
-  .outcome svg{flex:none}
-
-  #connect{background:linear-gradient(140deg,var(--green),var(--green-dark));color:#fff;text-align:center;padding:100px 0}
-  #connect h2{font-size:clamp(2rem,4.5vw,3.2rem);max-width:22ch;margin:0 auto}
-  #connect p{color:#dcece1;max-width:52ch;margin:22px auto 40px;font-size:1.06rem}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:.9rem;transition:.25s;cursor:pointer}
-  #connect .btn{background:#fff;color:var(--green-dark)}
-  #connect .btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(0,0,0,.4)}
-
-  footer{background:var(--ink);color:#9fada4;padding:70px 0 40px}
-  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
-  .foot-brand{font-family:'Fraunces';font-size:1.5rem;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:12px}
-  .foot-top p{font-size:.92rem;max-width:38ch}
-  .foot-col h5{color:#fff;font-family:'Inter';font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
-  .foot-col a{display:block;font-size:.92rem;padding:6px 0;color:#9fada4;transition:.2s}
-  .foot-col a:hover{color:#8fd0a6}
-  .foot-bottom{padding-top:28px;font-size:.8rem;color:#7b877f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-  .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-
-  @media(max-width:900px){
-    .menu{position:fixed;inset:78px 0 auto 0;background:#fff;flex-direction:column;gap:0;padding:14px 28px 26px;border-bottom:1px solid var(--line);transform:translateY(-140%);transition:.4s}
-    .menu.open{transform:none}
-    .menu a{padding:14px 0;width:100%;border-bottom:1px solid var(--line)}
-    .menu a.cta{text-align:center;margin-top:12px;border-bottom:0}
-    .burger{display:flex}
-    .grid,.foot-top{grid-template-columns:1fr}
-    .phead{padding:140px 0 50px}
-  }
-
-  /* nicer tablet layout — 2 columns instead of jumping straight to 1 */
-  @media(max-width:900px) and (min-width:600px){
-    .grid{grid-template-columns:1fr 1fr}
-  }
-</style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+<link rel="stylesheet" href="styles.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-<header>
+<header id="hdr">
   <div class="wrap nav">
     <a href="index.html" class="brand">
       <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" stroke="#2f7d4f" stroke-width="1.6"/>
-        <path d="M20 31c0-7 3-11 9-13-1 7-4 11-9 13Z" fill="#2f7d4f"/>
-        <path d="M20 31c0-7-3-11-9-13 1 7 4 11 9 13Z" fill="#1f5c39"/>
-        <path d="M20 31V15" stroke="#1f5c39" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="19" stroke="#123f75" stroke-width="1.6"/>
+        <path d="M20 33V19" stroke="#002147" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M20 6C22.7 11 22.7 15 20 19 17.3 15 17.3 11 20 6Z" fill="#123f75"/>
+        <path d="M20 19C15.3 16.9 11.7 14 12.3 9.1 16.4 10.5 19 14.1 20 19Z" fill="#002147"/>
+        <path d="M20 19C24.7 16.9 28.3 14 27.7 9.1 23.6 10.5 21 14.1 20 19Z" fill="#002147"/>
+        <path d="M14.6 24.5C11.6 23.8 9 24.8 8 27.4 11 28 13.6 27 14.6 24.5Z" fill="#123f75"/>
+        <path d="M25.4 24.5C28.4 23.8 31 24.8 32 27.4 29 28 26.4 27 25.4 24.5Z" fill="#123f75"/>
       </svg>
       <span>Florex Group<small>Since 1850</small></span>
     </a>
     <nav class="menu" id="menu">
-      <a href="index.html#about">About</a>
-      <a href="index.html#approach">Partner</a>
-      <a href="index.html#expertise">Expertise</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="sectors.html">Sectors</a>
       <a href="projects.html" class="active">Projects</a>
-      <a class="cta" href="mailto:directie@florexgroup.com?subject=Partnerships%20and%20connections">Connect</a>
+      <a class="cta" href="contact.html">Contact</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<section class="phead">
+<section class="page-hero">
   <div class="wrap">
     <div class="eyebrow reveal">Delivered success · Since 1990</div>
     <h1 class="reveal">A track record of <em>growth, transition</em> &amp; the right partners.</h1>
@@ -141,14 +55,14 @@
   </div>
 </section>
 
-<section class="projects">
+<section>
   <div class="wrap">
     <div class="grid" id="grid">
 
       <article class="proj reveal" data-cat="Horticulture">
         <div class="top"><span class="tag">Horticulture</span><span class="yr">1990–2004</span></div>
         <h3>Florex &amp; Sons</h3>
-        <p>Family company taken over in 1990. We grew it into a global leader in floricultural products trade, serving both the professional and retail markets.</p>
+        <p>Company taken over in 1990. We grew it into a global leader in floricultural products trade, serving both the professional and retail markets.</p>
         <div class="metrics">
           <div class="m"><b>160</b><span>Employees worldwide</span></div>
           <div class="m"><b>€75m</b><span>Revenue worldwide</span></div>
@@ -263,11 +177,11 @@
   </div>
 </section>
 
-<section id="connect">
+<section class="cta-band">
   <div class="wrap reveal">
     <h2>Could your company be the next chapter?</h2>
     <p>If you're seeking a long-term partner for strategic investment, growth or a considered exit, we'd welcome the conversation.</p>
-    <a class="btn" href="mailto:directie@florexgroup.com?subject=Partnerships%20and%20common%20interest">Get in contact →</a>
+    <a class="btn btn-primary" href="contact.html">Get in contact →</a>
   </div>
 </section>
 
@@ -277,26 +191,29 @@
       <div>
         <div class="foot-brand">
           <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-            <circle cx="20" cy="20" r="19" stroke="#8fd0a6" stroke-width="1.6"/>
-            <path d="M20 31c0-7 3-11 9-13-1 7-4 11-9 13Z" fill="#8fd0a6"/>
-            <path d="M20 31c0-7-3-11-9-13 1 7 4 11 9 13Z" fill="#5ea479"/>
-            <path d="M20 31V15" stroke="#5ea479" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="19" stroke="#9cc3ea" stroke-width="1.6"/>
+            <path d="M20 33V19" stroke="#5a86bd" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M20 6C22.7 11 22.7 15 20 19 17.3 15 17.3 11 20 6Z" fill="#9cc3ea"/>
+            <path d="M20 19C15.3 16.9 11.7 14 12.3 9.1 16.4 10.5 19 14.1 20 19Z" fill="#5a86bd"/>
+            <path d="M20 19C24.7 16.9 28.3 14 27.7 9.1 23.6 10.5 21 14.1 20 19Z" fill="#5a86bd"/>
+            <path d="M14.6 24.5C11.6 23.8 9 24.8 8 27.4 11 28 13.6 27 14.6 24.5Z" fill="#9cc3ea"/>
+            <path d="M25.4 24.5C28.4 23.8 31 24.8 32 27.4 29 28 26.4 27 25.4 24.5Z" fill="#9cc3ea"/>
           </svg>
           Florex Group
         </div>
-        <p>Florex Holding bv — embracing tradition, driving innovation. Connect with us for enduring partnerships in global business growth.</p>
+        <p>Florex Holding bv — a long-established Dutch investment and business-development group. Connect with us for enduring partnerships in global business growth.</p>
       </div>
       <div class="foot-col">
         <h5>Navigate</h5>
-        <a href="index.html#about">About</a>
-        <a href="index.html#approach">Partner</a>
-        <a href="index.html#expertise">Expertise</a>
+        <a href="about.html">About</a>
+        <a href="sectors.html">Sectors</a>
         <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
         <h5>Connect</h5>
         <a href="mailto:directie@florexgroup.com">directie@florexgroup.com</a>
-        <a href="#">The Netherlands</a>
+        <a href="contact.html">The Netherlands</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
       </div>
@@ -308,25 +225,6 @@
   </div>
 </footer>
 
-<script>
-  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // filters
-  const fbtns=document.querySelectorAll('#filters button'),cards=document.querySelectorAll('.proj');
-  fbtns.forEach(b=>b.addEventListener('click',()=>{
-    fbtns.forEach(x=>x.classList.remove('active'));b.classList.add('active');
-    const f=b.dataset.f;
-    cards.forEach(c=>{
-      const show=f==='all'||c.dataset.cat===f;
-      c.style.display=show?'flex':'none';
-      if(show){c.classList.remove('in');requestAnimationFrame(()=>c.classList.add('in'))}
-    });
-  }));
-</script>
+<script src="script.js"></script>
 </body>
 </html>

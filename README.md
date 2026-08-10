@@ -9,17 +9,23 @@ GitHub Pages.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Home — hero, about, partnership approach, expertise, contact |
+| `index.html` | Home — hero, intro, sector preview, approach, CTA |
+| `about.html` | About — heritage story, investment approach, values |
+| `sectors.html` | Sectors & markets — image cards + full portfolio lists |
 | `projects.html` | Track record — filterable grid of past investments and exits |
+| `contact.html` | Contact — details and partnership enquiries |
+| `styles.css` | Shared stylesheet (Oxford-blue theme) for all pages |
+| `script.js` | Shared interactions (nav, reveals, counters, filter) |
 
 ## Highlights
 
-- Clean, light, minimal design with a green horticulture-heritage accent
-- Solid deep-green hero with a Dutch tulip-field image
+- Modern, corporate **Oxford-blue** palette with a light, minimal layout
+- Multi-page structure with a shared stylesheet and script (no duplication)
+- Solid Oxford-blue home hero; sector/market photography throughout
 - Fully responsive (mobile, tablet and desktop breakpoints)
 - Scroll-reveal animations, animated statistics and a category filter on the projects page
 - No build step, no frameworks — just HTML, CSS and a little vanilla JavaScript
-- Fonts loaded from Google Fonts (Fraunces + Inter); one photo loaded from Wikimedia Commons
+- Fonts loaded from Google Fonts (Fraunces + Inter); sector photos loaded from Wikimedia Commons
 
 ## Run locally
 
@@ -78,8 +84,13 @@ To serve the site from your own domain (e.g. `www.florexgroup.com`):
 
 ```
 florex-group-website/
-├── index.html        # Home page
-├── projects.html     # Track record page
+├── index.html        # Home
+├── about.html        # About
+├── sectors.html      # Sectors & markets
+├── projects.html     # Track record
+├── contact.html      # Contact
+├── styles.css        # Shared Oxford-blue stylesheet
+├── script.js         # Shared interactions
 ├── .nojekyll         # Serve files as-is on GitHub Pages
 ├── .gitignore
 ├── README.md
