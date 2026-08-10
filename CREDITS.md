@@ -1,5 +1,12 @@
 # Credits & Attribution
 
+## Logo
+
+- **Moolenaar Group iris/bulb mark** — `logo-icon.png`, supplied by the client
+  (exported from Canva). Extracted from the provided SVG and displayed via a CSS
+  mask so it recolours to each background (deep blue on light, light blue on
+  dark). The original upload was `BulbIris Solid Icon Logo.svg`.
+
 ## Fonts
 
 - **Fraunces** and **Inter** — served via [Google Fonts](https://fonts.google.com/),

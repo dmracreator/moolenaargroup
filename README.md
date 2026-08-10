@@ -1,6 +1,6 @@
-# Florex Group — Website
+# Moolenaar Group — Website
 
-A modern, responsive marketing website for **Florex Group**, a Dutch family-owned
+A modern, responsive marketing website for **Moolenaar Group**, a Dutch family-owned
 investment and business-development group (est. 1850). Built as a lightweight,
 dependency-free static site so it can be hosted anywhere — including free on
 GitHub Pages.
@@ -41,13 +41,13 @@ python3 -m http.server 8000
 
 ## Deploy to GitHub Pages
 
-1. Create a new repository on GitHub (e.g. `florex-group-website`).
+1. Create a new repository on GitHub (e.g. `moolenaar-group-website`).
 2. Push the contents of this folder to the `main` branch:
 
    ```bash
    git init
    git add .
-   git commit -m "Initial commit: Florex Group website"
+   git commit -m "Initial commit: Moolenaar Group website"
    git branch -M main
    git remote add origin https://github.com/<your-username>/<your-repo>.git
    git push -u origin main
@@ -64,17 +64,17 @@ The included `.nojekyll` file tells GitHub Pages to serve the files as-is
 
 ### Custom domain (optional)
 
-To serve the site from your own domain (e.g. `www.florexgroup.com`):
+To serve the site from your own domain (e.g. `www.moolenaargroup.com`):
 
-1. Add a file named `CNAME` containing just your domain, e.g. `www.florexgroup.com`.
+1. Add a file named `CNAME` containing just your domain, e.g. `www.moolenaargroup.com`.
 2. At your DNS provider, point the domain to GitHub Pages
    (a `CNAME` record to `<your-username>.github.io`, or the GitHub Pages `A` records).
 3. Set the custom domain under **Settings → Pages** and enable **Enforce HTTPS**.
 
 ## Before you go live — checklist
 
-- [ ] Replace the placeholder contact email `directie@florexgroup.com` with the real address
-- [ ] Confirm the legal entity name (`Florex Holding bv`) is correct
+- [ ] Replace the placeholder contact email `directie@moolenaargroup.com` with the real address
+- [ ] Confirm the legal entity name (`Moolenaar Holding bv`) is correct
 - [ ] Add real Privacy Policy and Terms of Use pages (currently `#` placeholder links)
 - [ ] Optionally download and self-host the hero image for full offline reliability
       (see `CREDITS.md` for the source and licence)
@@ -83,7 +83,7 @@ To serve the site from your own domain (e.g. `www.florexgroup.com`):
 ## Structure
 
 ```
-florex-group-website/
+moolenaar-group-website/
 ├── index.html        # Home
 ├── about.html        # About
 ├── sectors.html      # Sectors & markets
@@ -100,5 +100,5 @@ florex-group-website/
 
 ## License
 
-See `LICENSE`. Website code and copy © Florex Group. Third-party image and font
+See `LICENSE`. Website code and copy © Moolenaar Group. Third-party image and font
 credits are listed in `CREDITS.md`.
