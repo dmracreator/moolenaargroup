@@ -167,9 +167,6 @@ section{padding:100px 0}
 .tl h3{font-size:1.18rem;display:inline-block;margin-right:10px}
 .tl-role{display:inline-block;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:3px 9px;border-radius:100px;vertical-align:middle}
 .tl p{color:var(--ink-soft);font-size:.92rem;max-width:60ch;margin-top:7px}
-.tl-img{margin-top:12px;border-radius:10px;overflow:hidden;border:1px solid var(--line);max-width:300px}
-.tl-img img{width:100%;display:block}
-.tl-img figcaption{font-size:.72rem;color:var(--ink-soft);padding:6px 10px;background:var(--bg-alt)}
 
 /* ---------- Approach cards ---------- */
 .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
